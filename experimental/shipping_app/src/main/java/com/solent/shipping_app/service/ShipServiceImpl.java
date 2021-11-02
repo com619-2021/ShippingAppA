@@ -4,6 +4,7 @@ import com.solent.shipping_app.data.models.Ship;
 import com.solent.shipping_app.data.payloads.request.ShipRequest;
 import com.solent.shipping_app.data.payloads.response.MessageResponse;
 import com.solent.shipping_app.data.repository.ShipRepo;
+import com.solent.shipping_app.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,25 +19,24 @@ public class ShipServiceImpl implements ShipService {
     @Override
     public MessageResponse createShip(ShipRequest shipRequest) {
         Ship newShip = new Ship();
-        newShip.setFirstName(ShipRequest.getFirstName());
-        newShip.setLastname(ShipRequest.getLastname());
-        newShip.setPhoneNumber(ShipRequest.getPhoneNumber());
-        newShip.setEmail(ShipRequest.getEmail());
-        newShip.setSalary(ShipRequest.getSalary());
-        newShip.setRoute(ShipRequest.getRoutes());
+        newShip.setFirstName(shipRequest.getFirstName());
+        newShip.setLastname(shipRequest.getLastname());
+        newShip.setPhoneNumber(shipRequest.getPhoneNumber());
+        newShip.setEmail(shipRequest.getEmail());
+        newShip.setSalary(shipRequest.getSalary());
+        newShip.setRoute(shipRequest.getRoutes());
         shipRepo.save(newShip);
-        return new MessageResponse("New Employee created successfully");
+        return new MessageResponse("New Ship created successfully");
 
     }
 
 
     @Override
-    public Optional<Ship> updateShip(Integer shipID, ShipRequest shipRequest)  throws ResourceNotFoundException{
+    public Optional<Ship> updateShip(Integer shipID, ShipRequest shipRequest) throws ResourceNotFoundException {
         Optional<Ship> ship = shipRepo.findById(shipID);
-        if (ship.isEmpty()){
+        if (ship.isEmpty()) {
             throw new ResourceNotFoundException("Ship", "id", shipID);
-        }
-        else
+        } else
             ship.get().setFirstName(shipRequest.getFirstName());
         ship.get().setLastname(shipRequest.getLastname());
         ship.get().setPhoneNumber(shipRequest.getPhoneNumber());
@@ -48,7 +48,7 @@ public class ShipServiceImpl implements ShipService {
     }
 
     @Override
-    public Ship getASingleShip(Integer shipId) throws ResourceNotFoundException{
+    public Ship getASingleShip(Integer shipId) throws ResourceNotFoundException {
         return shipRepo.findById(shipId).orElseThrow(() -> new ResourceNotFoundException("Ship", "id", shipId));
     }
 
@@ -56,12 +56,12 @@ public class ShipServiceImpl implements ShipService {
     public List<Ship> getAllShip() {
         return shipRepo.findAll();
     }
+
     @Override
     public void deleteShip(Integer shipId) throws ResourceNotFoundException {
-        if (shipRepo.getById(shipId).getId().equals(shipId)){
+        if (shipRepo.getById(shipId).getId().equals(shipId)) {
             shipRepo.deleteById(shipId);
-        }
-        else throw new ResourceNotFoundException("Employee", "id", shipId);
+        } else throw new ResourceNotFoundException("Ship", "id", shipId);
     }
 
 }
