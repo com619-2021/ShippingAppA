@@ -70,12 +70,12 @@ public class Ship {
         this.salary = salary;
     }
 
-    public Routes getDepartment() {
+    public Routes getRoute() {
         return routes;
     }
 
-    public void setDepartment(Routes department) {
-        this.routes = department;
+    public void setRoute(Routes route) {
+        this.routes = route;
     }
 
     @Override
