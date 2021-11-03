@@ -1,17 +1,17 @@
 package com.solent.shipping_app.web;
 
-        import com.solent.shipping_app.data.models.Ship;
-        import com.solent.shipping_app.data.payloads.request.ShipRequest;
-        import com.solent.shipping_app.data.payloads.response.MessageResponse;
-        import com.solent.shipping_app.service.ShipService;
-        import io.swagger.annotations.ApiResponses;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.http.HttpStatus;
-        import org.springframework.http.ResponseEntity;
-        import org.springframework.web.bind.annotation.*;
+import com.solent.shipping_app.data.models.Ship;
+import com.solent.shipping_app.data.payloads.request.ShipRequest;
+import com.solent.shipping_app.data.payloads.response.MessageResponse;
+import com.solent.shipping_app.service.ShipService;
+import io.swagger.annotations.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-        import java.util.List;
-        import java.util.Optional;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/ship")
@@ -28,15 +28,17 @@ public class ShipController {
     ShipService shipService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<Ship>> getAllShip () {
+    public ResponseEntity<List<Ship>> getAllShip() {
         List<Ship> footballers = shipService.getAllShip();
         return new ResponseEntity<>(footballers, HttpStatus.OK);
     }
+
     @GetMapping("/find/{id}")
-    public ResponseEntity<Ship> getShipById (@PathVariable("id") Integer id) {
+    public ResponseEntity<Ship> getShipById(@PathVariable("id") Integer id) {
         Ship ship = shipService.getASingleShip(id);
         return new ResponseEntity<>(ship, HttpStatus.OK);
     }
+
     @PostMapping("/add")
     public ResponseEntity<MessageResponse> addShip(@RequestBody ShipRequest ship) {
         MessageResponse newShip = shipService.createShip(ship);
