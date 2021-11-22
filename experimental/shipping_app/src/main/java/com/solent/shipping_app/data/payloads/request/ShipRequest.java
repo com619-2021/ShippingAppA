@@ -2,7 +2,6 @@ package com.solent.shipping_app.data.payloads.request;
 
 
 import com.solent.shipping_app.data.models.Inventory;
-import com.solent.shipping_app.data.models.Routes;
 import com.solent.shipping_app.data.models.Service;
 
 import javax.validation.constraints.NotBlank;
