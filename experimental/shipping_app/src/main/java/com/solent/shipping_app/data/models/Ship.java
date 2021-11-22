@@ -1,8 +1,15 @@
 package com.solent.shipping_app.data.models;
 
 import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
+//{
+//        inventory: [
+//        {quantity: 3, name: 'wood', unit: 'metric tons'}
+//        ],
+//        }
 
 @Entity
 public class Ship {
@@ -11,13 +18,14 @@ public class Ship {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String firstName;
-    private String lastname;
-    private String phoneNumber;
-    private String email;
-    private double salary;
-    @Enumerated(EnumType.STRING)
-    private Routes routes;
+    private String shipName;
+    private Integer passengers;
+    private Integer depth;
+    private Integer size;
+    private Date arrival;
+    private List<Service> services;
+    private List<Inventory> inventory;
+
 
     public Ship() {
     }
@@ -30,64 +38,74 @@ public class Ship {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getShipName() {
+        return shipName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setShipName(String shipName) {
+        this.shipName = shipName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public Integer getPassengers() {
+        return passengers;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setPassengers(Integer passengers) {
+        this.passengers = passengers;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public Integer getDepth() {
+        return depth;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setDepth(Integer depth) {
+        this.depth = depth;
     }
 
-    public String getEmail() {
-        return email;
+    public Integer getSize() {
+        return size;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSize(Integer size) {
+        this.size = size;
     }
 
-    public double getSalary() {
-        return salary;
+    public Date getArrival() {
+        return arrival;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public void setArrival(Date arrival) {
+        this.arrival = arrival;
     }
 
-    public Routes getRoute() {
-        return routes;
+    public List<Service> getServices() {
+        return services;
     }
 
-    public void setRoute(Routes route) {
-        this.routes = route;
+    public void setServices(List<Service> services) {
+        this.services = services;
     }
+
+    public List<Inventory> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(List<Inventory> inventory) {
+        this.inventory = inventory;
+    }
+
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "Ship{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", salary=" + salary +
-                ", department=" + routes +
+                ", shipName='" + shipName + '\'' +
+                ", passengers='" + passengers + '\'' +
+                ", depth='" + depth + '\'' +
+                ", size='" + size + '\'' +
+                ", arrival=" + arrival +
+                ", services=" + services +
+                ", inventory=" + inventory +
                 '}';
     }
 
@@ -96,19 +114,17 @@ public class Ship {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ship ship = (Ship) o;
-        return Double.compare(ship.salary, salary) == 0
-                && Objects.equals(id, ship.id)
-                && Objects.equals(firstName, ship.firstName)
-                && Objects.equals(lastname, ship.lastname)
-                && Objects.equals(phoneNumber, ship.phoneNumber)
-                && Objects.equals(email, ship.email)
-                && routes == ship.routes;
+        return Objects.equals(id, ship.id)
+                && Objects.equals(shipName, ship.shipName)
+                && Objects.equals(passengers, ship.passengers)
+                && Objects.equals(depth, ship.depth)
+                && Objects.equals(size, ship.size);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                id, firstName, lastname, phoneNumber, email, salary, routes
+                id, shipName, passengers, depth, size, arrival, services, inventory
         );
     }
 }

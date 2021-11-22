@@ -1,5 +1,6 @@
 package com.solent.shipping_app.service;
 
+import com.solent.shipping_app.data.models.Inventory;
 import com.solent.shipping_app.data.models.Ship;
 import com.solent.shipping_app.data.payloads.request.ShipRequest;
 import com.solent.shipping_app.data.payloads.response.MessageResponse;
@@ -8,6 +9,7 @@ import com.solent.shipping_app.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,15 +18,17 @@ public class ShipServiceImpl implements ShipService {
     @Autowired
     ShipRepo shipRepo;
 
+
     @Override
     public MessageResponse createShip(ShipRequest shipRequest) {
         Ship newShip = new Ship();
-        newShip.setFirstName(shipRequest.getFirstName());
-        newShip.setLastname(shipRequest.getLastname());
-        newShip.setPhoneNumber(shipRequest.getPhoneNumber());
-        newShip.setEmail(shipRequest.getEmail());
-        newShip.setSalary(shipRequest.getSalary());
-        newShip.setRoute(shipRequest.getRoutes());
+        newShip.setShipName(shipRequest.getShipName());
+        newShip.setPassengers(shipRequest.getPassengers());
+        newShip.setDepth(shipRequest.getDepth());
+        newShip.setSize(shipRequest.getSize());
+        newShip.setArrival(shipRequest.getArrival());
+        newShip.setServices(shipRequest.getServices());
+        newShip.setInventory(shipRequest.getInventory());
         shipRepo.save(newShip);
         return new MessageResponse("New Ship created successfully");
 
@@ -37,12 +41,13 @@ public class ShipServiceImpl implements ShipService {
         if (ship.isEmpty()) {
             throw new ResourceNotFoundException("Ship", "id", shipID);
         } else
-            ship.get().setFirstName(shipRequest.getFirstName());
-        ship.get().setLastname(shipRequest.getLastname());
-        ship.get().setPhoneNumber(shipRequest.getPhoneNumber());
-        ship.get().setEmail(shipRequest.getEmail());
-        ship.get().setSalary(shipRequest.getSalary());
-        ship.get().setRoute(shipRequest.getRoutes());
+            ship.get().setShipName(shipRequest.getShipName());
+        ship.get().setPassengers(shipRequest.getPassengers());
+        ship.get().setDepth(shipRequest.getDepth());
+        ship.get().setSize(shipRequest.getSize());
+        ship.get().setArrival(shipRequest.getArrival());
+        ship.get().setServices(shipRequest.getServices());
+        ship.get().setInventory(shipRequest.getInventory());
         shipRepo.save(ship.get());
         return ship;
     }
