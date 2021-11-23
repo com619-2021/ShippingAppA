@@ -17,6 +17,7 @@ public class Booking {
     private Integer id;
     private Date startDate;
     private Date endDate;
+    @ElementCollection
     private List<Service> services;
 
     public Booking() {
