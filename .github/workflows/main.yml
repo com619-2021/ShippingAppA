@@ -1,5 +1,4 @@
-name: Test-Workflow
-
+name: Build-Deploy
 on:
   release:
     types: [published]
