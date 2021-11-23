@@ -26,6 +26,6 @@ jobs:
       - name: Build with Maven
         working-directory: ./experimental/shipping_app/
         run: | 
-          mvn -B --update-snapshots package -P packageAsDocker
+          mvn -B --update-snapshots -DskipTests package -P packageAsDocker
           docker build ./docker -f ./docker/Dockerfile -t ghcr.io/${{ github.repository_owner }}/shipping_app:v0.0.1
           docker push ghcr.io/${{ github.repository_owner }}/shipping_app:v0.0.1
