@@ -1,7 +1,7 @@
 package com.solent.shipping_app.data.payloads.request;
 
 
-import com.solent.shipping_app.data.models.Service;
+//import com.solent.shipping_app.data.models.Service;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

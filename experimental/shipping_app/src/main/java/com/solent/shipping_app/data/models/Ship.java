@@ -23,7 +23,9 @@ public class Ship {
     private Integer depth;
     private Integer size;
     private Date arrival;
+    @ElementCollection
     private List<Service> services;
+    @ElementCollection
     private List<Inventory> inventory;
 
 
@@ -124,7 +126,8 @@ public class Ship {
     @Override
     public int hashCode() {
         return Objects.hash(
-                id, shipName, passengers, depth, size, arrival, services, inventory
+                id, shipName, passengers, depth, size, arrival
+                //, services, inventory
         );
     }
 }

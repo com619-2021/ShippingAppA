@@ -1,6 +1,6 @@
 package com.solent.shipping_app.service;
 
-import com.solent.shipping_app.data.models.Inventory;
+//import com.solent.shipping_app.data.models.Inventory;
 import com.solent.shipping_app.data.models.Ship;
 import com.solent.shipping_app.data.payloads.request.ShipRequest;
 import com.solent.shipping_app.data.payloads.response.MessageResponse;
