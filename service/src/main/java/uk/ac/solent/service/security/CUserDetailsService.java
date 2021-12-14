@@ -1,6 +1,5 @@
 package uk.ac.solent.service.security;
 
-import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,10 +11,13 @@ import uk.ac.solent.dao.user.UserRepository;
 import java.util.Collections;
 
 @Service
-@AllArgsConstructor
 public class CUserDetailsService implements UserDetailsService {
 
     private UserRepository userRepository;
+
+    public CUserDetailsService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
