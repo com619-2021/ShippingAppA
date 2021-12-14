@@ -1,28 +1,26 @@
 package uk.ac.solent.route;
 
-import uk.ac.solent.route.RouteDao;
-import uk.ac.solent.route.RouteDto;
-
 import java.util.List;
+import java.util.Optional;
 
 public class RouteDAOImpSpring implements RouteDao {
     @Override
-    public RouteDto getById(Integer id) {
+    public Optional<RouteDto> getById(Integer id) {
         return null;
     }
 
     @Override
-    public RouteDto create(RouteDto booking) {
+    public Optional<RouteDto> create(RouteDto route) {
         return null;
     }
 
     @Override
-    public RouteDto save(RouteDto booking) {
+    public Optional<RouteDto> save(RouteDto route) {
         return null;
     }
 
     @Override
-    public List<RouteDto> getAll() {
+    public Optional<List<RouteDto>> getAll() {
         return null;
     }
 
@@ -32,7 +30,7 @@ public class RouteDAOImpSpring implements RouteDao {
     }
 
     @Override
-    public void archive(RouteDto booking) {
+    public void archive(RouteDto route) {
 
     }
 }

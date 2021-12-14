@@ -4,25 +4,26 @@ import uk.ac.solent.ship.ShipDao;
 import uk.ac.solent.ship.ShipDto;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ShipDAOImpSpring implements ShipDao {
     @Override
-    public ShipDto getById(Integer id) {
+    public Optional<ShipDto> getById(Integer id) {
         return null;
     }
 
     @Override
-    public ShipDto create(ShipDto booking) {
+    public Optional<ShipDto> create(ShipDto ship) {
         return null;
     }
 
     @Override
-    public ShipDto save(ShipDto booking) {
+    public Optional<ShipDto> save(ShipDto ship) {
         return null;
     }
 
     @Override
-    public List<ShipDto> getAll() {
+    public Optional<List<ShipDto>> getAll() {
         return null;
     }
 
@@ -32,7 +33,7 @@ public class ShipDAOImpSpring implements ShipDao {
     }
 
     @Override
-    public void archive(ShipDto booking) {
+    public void archive(ShipDto ship) {
 
     }
 }
