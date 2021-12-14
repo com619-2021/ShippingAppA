@@ -1,7 +1,8 @@
 package uk.ac.solent.route;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import uk.ac.solent.route.RouteDto;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RouteRepository extends JpaRepository<RouteDto, Integer> {
 }
