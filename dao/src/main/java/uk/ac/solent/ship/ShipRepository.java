@@ -1,4 +1,4 @@
-package uk.ac.solent.ship.springData;
+package uk.ac.solent.ship;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import uk.ac.solent.ship.ShipDto;

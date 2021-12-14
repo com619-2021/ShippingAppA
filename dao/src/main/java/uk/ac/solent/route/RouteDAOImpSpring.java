@@ -1,4 +1,4 @@
-package uk.ac.solent.route.spring;
+package uk.ac.solent.route;
 
 import uk.ac.solent.route.RouteDao;
 import uk.ac.solent.route.RouteDto;

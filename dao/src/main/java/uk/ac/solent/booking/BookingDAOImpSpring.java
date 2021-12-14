@@ -1,4 +1,4 @@
-package uk.ac.solent.booking.spring;
+package uk.ac.solent.booking;
 
 import uk.ac.solent.booking.BookingDao;
 import uk.ac.solent.booking.BookingDto;
@@ -8,6 +8,11 @@ import java.util.List;
 public class BookingDAOImpSpring implements BookingDao {
     @Override
     public BookingDto getById(Integer id) {
+        return null;
+    }
+
+    @Override
+    public BookingDto create(BookingDto booking) {
         return null;
     }
 

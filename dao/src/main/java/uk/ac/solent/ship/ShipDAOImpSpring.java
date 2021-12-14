@@ -1,4 +1,4 @@
-package uk.ac.solent.ship.spring;
+package uk.ac.solent.ship;
 
 import uk.ac.solent.ship.ShipDao;
 import uk.ac.solent.ship.ShipDto;

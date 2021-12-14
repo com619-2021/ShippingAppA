@@ -1,4 +1,4 @@
-package uk.ac.solent.booking.springData;
+package uk.ac.solent.booking;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import uk.ac.solent.booking.BookingDto;
