@@ -2,6 +2,7 @@ package uk.ac.solent.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,6 +19,7 @@ import uk.ac.solent.security.JwtAuthFilter;
 
 @Configuration
 @EnableWebSecurity
+@ComponentScan(basePackages = {"uk.ac.solent.security"})
 public class SpringBootWebSecurityConfiguration{
 
     @Configuration
