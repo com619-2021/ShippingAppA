@@ -2,7 +2,7 @@
 
 ## **Group**
 - Ahmed
-- Etan
+- Ethan
 - John
 - Fabian
 
