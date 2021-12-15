@@ -1,5 +1,6 @@
 package uk.ac.solent.model.base;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,18 +23,22 @@ public class BaseModel implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreatedDate
+    @JsonIgnore
     private Date createdAt;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_at", nullable = false)
     @LastModifiedDate
+    @JsonIgnore
     private Date updatedAt;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "archived", nullable = false)
+    @JsonIgnore
     private Date archived;
 
     @Version
+    @JsonIgnore
     private int version;
 
 }

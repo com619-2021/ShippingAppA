@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @Service
 public class UserService implements UserModelService {
+
     @Override
     public Optional<UserDto> create(UserDto entity) {
         return Optional.empty();
@@ -26,6 +27,21 @@ public class UserService implements UserModelService {
 
     @Override
     public Optional<UserDto> save(UserDto entity) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<UserDto> deleteById(Integer id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<UserDto> archiveById(Integer id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<UserDto> findByEmail(String email) {
         return Optional.empty();
     }
 }

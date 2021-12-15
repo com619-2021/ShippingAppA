@@ -9,33 +9,34 @@ import java.util.Optional;
 
 @Component
 public class ShipDAOImpSpring implements ShipDao {
+
     @Override
-    public Optional<ShipDto> getById(Integer id) {
-        return null;
+    public Optional<ShipDto> create(ShipDto entity) {
+        return Optional.empty();
     }
 
     @Override
-    public Optional<ShipDto> create(ShipDto ship) {
-        return null;
+    public Optional<ShipDto> findById(Integer id) {
+        return Optional.empty();
     }
 
     @Override
-    public Optional<ShipDto> save(ShipDto ship) {
-        return null;
+    public Optional<List<ShipDto>> findAll() {
+        return Optional.empty();
     }
 
     @Override
-    public Optional<List<ShipDto>> getAll() {
-        return null;
+    public Optional<ShipDto> save(ShipDto entity) {
+        return Optional.empty();
     }
 
     @Override
-    public void archive(Integer id) {
-
+    public Optional<ShipDto> deleteById(Integer id) {
+        return Optional.empty();
     }
 
     @Override
-    public void archive(ShipDto ship) {
-
+    public Optional<ShipDto> archiveById(Integer id) {
+        return Optional.empty();
     }
 }

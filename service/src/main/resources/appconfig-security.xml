@@ -27,7 +27,7 @@
         </security:authentication-provider>
     </security:authentication-manager>
 
-    <bean id="userDetailsServiceImpl" class="uk.ac.solent.service.security.CUserDetailsService">
+    <bean id="userDetailsServiceImpl" class="uk.ac.solent.security.CUserDetailsService">
     </bean>
 
     <bean id="encoder"

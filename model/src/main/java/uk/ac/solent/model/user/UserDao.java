@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserDao {
-    Optional<UserDto> getById(Integer id);
-    Optional<UserDto> create(UserDto user);
-    Optional<UserDto> save(UserDto user);
-    Optional<List<UserDto>> getAll();
-    void archive(Integer id);
-    void archive(UserDto user);
+    Optional<UserDto> create(UserDto entity);
+    Optional<UserDto> findById(Integer id);
+    Optional<List<UserDto>> findAll();
+    Optional<UserDto> save(UserDto entity);
+    Optional<UserDto> deleteById(Integer id);
+    Optional<UserDto> archiveById(Integer id);
 }

@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BookingDao {
-    Optional<BookingDto> getById(Integer id);
-    Optional<BookingDto> create(BookingDto booking);
-    Optional<BookingDto> save(BookingDto booking);
-    Optional<List<BookingDto>> getAll();
-    void archive(Integer id);
-    void archive(BookingDto booking);
+    Optional<BookingDto> create(BookingDto entity);
+    Optional<BookingDto> findById(Integer id);
+    Optional<List<BookingDto>> findAll();
+    Optional<BookingDto> save(BookingDto entity);
+    Optional<BookingDto> deleteById(Integer id);
+    Optional<BookingDto> archiveById(Integer id);
 }

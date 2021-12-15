@@ -9,33 +9,34 @@ import java.util.Optional;
 
 @Component
 public class RouteDAOImpSpring implements RouteDao {
+
     @Override
-    public Optional<RouteDto> getById(Integer id) {
-        return null;
+    public Optional<RouteDto> create(RouteDto entity) {
+        return Optional.empty();
     }
 
     @Override
-    public Optional<RouteDto> create(RouteDto route) {
-        return null;
+    public Optional<RouteDto> findById(Integer id) {
+        return Optional.empty();
     }
 
     @Override
-    public Optional<RouteDto> save(RouteDto route) {
-        return null;
+    public Optional<List<RouteDto>> findAll() {
+        return Optional.empty();
     }
 
     @Override
-    public Optional<List<RouteDto>> getAll() {
-        return null;
+    public Optional<RouteDto> save(RouteDto entity) {
+        return Optional.empty();
     }
 
     @Override
-    public void archive(Integer id) {
-
+    public Optional<RouteDto> deleteById(Integer id) {
+        return Optional.empty();
     }
 
     @Override
-    public void archive(RouteDto route) {
-
+    public Optional<RouteDto> archiveById(Integer id) {
+        return Optional.empty();
     }
 }

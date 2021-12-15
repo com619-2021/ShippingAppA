@@ -1,4 +1,4 @@
-package uk.ac.solent.service.security;
+package uk.ac.solent.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

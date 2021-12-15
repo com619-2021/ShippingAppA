@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @Service
 public class ShipService implements ShipModelService {
+
     @Override
     public Optional<ShipDto> create(ShipDto entity) {
         return Optional.empty();
@@ -26,6 +27,16 @@ public class ShipService implements ShipModelService {
 
     @Override
     public Optional<ShipDto> save(ShipDto entity) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<ShipDto> deleteById(Integer id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<ShipDto> archiveById(Integer id) {
         return Optional.empty();
     }
 }

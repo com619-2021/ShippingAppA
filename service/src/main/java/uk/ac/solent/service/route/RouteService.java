@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @Service
 public class RouteService implements RouteModelService {
+
     @Override
     public Optional<RouteDto> create(RouteDto entity) {
         return Optional.empty();
@@ -26,6 +27,16 @@ public class RouteService implements RouteModelService {
 
     @Override
     public Optional<RouteDto> save(RouteDto entity) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<RouteDto> deleteById(Integer id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<RouteDto> archiveById(Integer id) {
         return Optional.empty();
     }
 }

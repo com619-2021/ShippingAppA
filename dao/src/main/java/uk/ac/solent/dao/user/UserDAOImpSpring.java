@@ -9,33 +9,34 @@ import java.util.Optional;
 
 @Component
 public class UserDAOImpSpring implements UserDao {
+
     @Override
-    public Optional<UserDto> getById(Integer id) {
-        return null;
+    public Optional<UserDto> create(UserDto entity) {
+        return Optional.empty();
     }
 
     @Override
-    public Optional<UserDto> create(UserDto user) {
-        return null;
+    public Optional<UserDto> findById(Integer id) {
+        return Optional.empty();
     }
 
     @Override
-    public Optional<UserDto> save(UserDto user) {
-        return null;
+    public Optional<List<UserDto>> findAll() {
+        return Optional.empty();
     }
 
     @Override
-    public Optional<List<UserDto>> getAll() {
-        return null;
+    public Optional<UserDto> save(UserDto entity) {
+        return Optional.empty();
     }
 
     @Override
-    public void archive(Integer id) {
-
+    public Optional<UserDto> deleteById(Integer id) {
+        return Optional.empty();
     }
 
     @Override
-    public void archive(UserDto user) {
-
+    public Optional<UserDto> archiveById(Integer id) {
+        return Optional.empty();
     }
 }

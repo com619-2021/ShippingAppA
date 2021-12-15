@@ -1,5 +1,6 @@
 package uk.ac.solent.model.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ public class UserDto extends BaseModel {
     private String email;
 
     @Column(name = "password")
+    @JsonIgnore
     private String password;
 
 }

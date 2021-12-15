@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ShipDao {
-    Optional<ShipDto> getById(Integer id);
-    Optional<ShipDto> create(ShipDto ship);
-    Optional<ShipDto> save(ShipDto ship);
-    Optional<List<ShipDto>> getAll();
-    void archive(Integer id);
-    void archive(ShipDto ship);
+    Optional<ShipDto> create(ShipDto entity);
+    Optional<ShipDto> findById(Integer id);
+    Optional<List<ShipDto>> findAll();
+    Optional<ShipDto> save(ShipDto entity);
+    Optional<ShipDto> deleteById(Integer id);
+    Optional<ShipDto> archiveById(Integer id);
 }

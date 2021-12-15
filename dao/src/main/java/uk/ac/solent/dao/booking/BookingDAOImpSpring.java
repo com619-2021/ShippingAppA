@@ -9,33 +9,34 @@ import java.util.Optional;
 
 @Component
 public class BookingDAOImpSpring implements BookingDao {
+
     @Override
-    public Optional<BookingDto> getById(Integer id) {
-        return null;
+    public Optional<BookingDto> create(BookingDto entity) {
+        return Optional.empty();
     }
 
     @Override
-    public Optional<BookingDto> create(BookingDto booking) {
-        return null;
+    public Optional<BookingDto> findById(Integer id) {
+        return Optional.empty();
     }
 
     @Override
-    public Optional<BookingDto> save(BookingDto booking) {
-        return null;
+    public Optional<List<BookingDto>> findAll() {
+        return Optional.empty();
     }
 
     @Override
-    public Optional<List<BookingDto>> getAll() {
-        return null;
+    public Optional<BookingDto> save(BookingDto entity) {
+        return Optional.empty();
     }
 
     @Override
-    public void archive(Integer id) {
-
+    public Optional<BookingDto> deleteById(Integer id) {
+        return Optional.empty();
     }
 
     @Override
-    public void archive(BookingDto booking) {
-
+    public Optional<BookingDto> archiveById(Integer id) {
+        return Optional.empty();
     }
 }

@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @Service
 public class BookingService implements BookingModelService {
+
     @Override
     public Optional<BookingDto> create(BookingDto entity) {
         return Optional.empty();
@@ -26,6 +27,16 @@ public class BookingService implements BookingModelService {
 
     @Override
     public Optional<BookingDto> save(BookingDto entity) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<BookingDto> deleteById(Integer id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<BookingDto> archiveById(Integer id) {
         return Optional.empty();
     }
 }
