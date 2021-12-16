@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping(value ="/ship", produces = "application/json")
 @Transactional
 public class ShipController implements BaseController<ShipDto>{
 

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping(value ="/route", produces = "application/json")
 @Transactional
 public class RouteController implements BaseController<RouteDto>{
 

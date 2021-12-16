@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping(value ="/user", produces = "application/json")
 @Transactional
 public class UserController implements BaseController<UserDto>{
 

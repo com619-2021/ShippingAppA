@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value ="booking", produces = "application/json")
+@RequestMapping(value ="/booking", produces = "application/json")
 @Transactional
 public class BookingController implements BaseController<BookingDto>{
 
