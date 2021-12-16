@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  stevedore:
+  shiplane:
     image: devops/shiplane:1.0.0-SNAPSHOT
     ports:
       - "8080:8080"
@@ -8,4 +8,4 @@ services:
       - shiplane-logs:/usr/local/tomcat/logs
 
 volumes:
-  stevedore-logs: {}
+  shiplane-logs: {}
