@@ -37,7 +37,7 @@
                                 <type>war</type>
                             </artifactItem>
                         </artifactItems>
-                        <outputDirectory>${project.build.directory}/stevedore</outputDirectory>
+                        <outputDirectory>${project.build.directory}/shiplane</outputDirectory>
                         <overWriteReleases>true</overWriteReleases>
                         <overWriteSnapshots>true</overWriteSnapshots>
                     </configuration>
