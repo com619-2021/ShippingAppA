@@ -5,7 +5,7 @@
 
     <parent>
         <groupId>uk.ac.solent</groupId>
-        <artifactId>devopsCOM619</artifactId>
+        <artifactId>devopscom619</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
