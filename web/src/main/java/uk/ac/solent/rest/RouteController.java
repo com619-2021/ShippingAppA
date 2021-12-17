@@ -5,11 +5,12 @@ import org.springframework.web.bind.annotation.*;
 import uk.ac.solent.dao.route.RouteRepository;
 import uk.ac.solent.model.route.RouteDto;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value ="/route", produces = "application/json")
+//@RequestMapping(path ="/api/route", produces = "application/json")
 @Transactional
 public class RouteController implements BaseController<RouteDto>{
 
@@ -20,38 +21,38 @@ public class RouteController implements BaseController<RouteDto>{
     }
 
     @Override
-    @PostMapping("")
-    public Optional<RouteDto> create(RouteDto entity) {
-        return Optional.empty();
+    @PostMapping("/api/route")
+    public RouteDto create(RouteDto entity) {
+        return null;
     }
 
     @Override
-    @PatchMapping( "/{id}")
-    public Optional<RouteDto> save(@PathVariable( "id" ) Integer id, RouteDto entity) {
-        return Optional.empty();
+    @PatchMapping( "/api/route/{id}")
+    public RouteDto save(@PathVariable( "id" ) Integer id, RouteDto entity) {
+        return null;
     }
 
     @Override
-    @GetMapping("/{id}")
-    public Optional<RouteDto> findById(@PathVariable( "id" ) Integer id) {
-        return Optional.empty();
+    @GetMapping("/api/route/{id}")
+    public RouteDto findById(@PathVariable( "id" ) Integer id) {
+        return null;
     }
 
     @Override
-    @GetMapping("")
-    public Optional<List<RouteDto>> findAll() {
-        return Optional.empty();
+    @GetMapping("/api/route")
+    public List<RouteDto> findAll() {
+        return Collections.emptyList();
     }
 
     @Override
-    @DeleteMapping("/{id}")
-    public Optional<RouteDto> deleteById(@PathVariable( "id" ) Integer id) {
-        return Optional.empty();
+    @DeleteMapping("/api/route/{id}")
+    public RouteDto deleteById(@PathVariable( "id" ) Integer id) {
+        return null;
     }
 
     @Override
-    @PutMapping("/{id}")
-    public Optional<RouteDto> archiveById(@PathVariable( "id" ) Integer id) {
-        return Optional.empty();
+    @PutMapping("/api/route/{id}")
+    public RouteDto archiveById(@PathVariable( "id" ) Integer id) {
+        return null;
     }
 }

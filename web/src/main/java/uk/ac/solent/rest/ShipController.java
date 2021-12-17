@@ -5,11 +5,12 @@ import org.springframework.web.bind.annotation.*;
 import uk.ac.solent.dao.ship.ShipRepository;
 import uk.ac.solent.model.ship.ShipDto;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value ="/ship", produces = "application/json")
+//@RequestMapping(path ="/api/ship", produces = "application/json")
 @Transactional
 public class ShipController implements BaseController<ShipDto>{
 
@@ -20,38 +21,38 @@ public class ShipController implements BaseController<ShipDto>{
     }
 
     @Override
-    @PostMapping("")
-    public Optional<ShipDto> create(ShipDto entity) {
-        return Optional.empty();
+    @PostMapping("/api/ship")
+    public ShipDto create(ShipDto entity) {
+        return null;
     }
 
     @Override
-    @PatchMapping( "/{id}")
-    public Optional<ShipDto> save(@PathVariable( "id" ) Integer id, ShipDto entity) {
-        return Optional.empty();
+    @PatchMapping( "/api/ship/{id}")
+    public ShipDto save(@PathVariable( "id" ) Integer id, ShipDto entity) {
+        return null;
     }
 
     @Override
-    @GetMapping("/{id}")
-    public Optional<ShipDto> findById(@PathVariable( "id" ) Integer id) {
-        return Optional.empty();
+    @GetMapping("/api/ship/{id}")
+    public ShipDto findById(@PathVariable( "id" ) Integer id) {
+        return null;
     }
 
     @Override
-    @GetMapping("")
-    public Optional<List<ShipDto>> findAll() {
-        return Optional.empty();
+    @GetMapping("/api/ship")
+    public List<ShipDto> findAll() {
+        return Collections.emptyList();
     }
 
     @Override
-    @DeleteMapping("/{id}")
-    public Optional<ShipDto> deleteById(@PathVariable( "id" ) Integer id) {
-        return Optional.empty();
+    @DeleteMapping("/api/ship/{id}")
+    public ShipDto deleteById(@PathVariable( "id" ) Integer id) {
+        return null;
     }
 
     @Override
-    @PutMapping("/{id}")
-    public Optional<ShipDto> archiveById(@PathVariable( "id" ) Integer id) {
-        return Optional.empty();
+    @PutMapping("/api/ship/{id}")
+    public ShipDto archiveById(@PathVariable( "id" ) Integer id) {
+        return null;
     }
 }

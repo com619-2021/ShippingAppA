@@ -6,11 +6,12 @@ import uk.ac.solent.dao.user.UserRepository;
 import uk.ac.solent.model.booking.BookingDto;
 import uk.ac.solent.model.user.UserDto;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value ="/user", produces = "application/json")
+//@RequestMapping(path ="/api/user", produces = "application/json")
 @Transactional
 public class UserController implements BaseController<UserDto>{
 
@@ -21,38 +22,38 @@ public class UserController implements BaseController<UserDto>{
     }
 
     @Override
-    @PostMapping("")
-    public Optional<UserDto> create(UserDto entity) {
-        return Optional.empty();
+    @PostMapping("/api/user")
+    public UserDto create(UserDto entity) {
+        return null;
     }
 
     @Override
-    @PatchMapping( "/{id}")
-    public Optional<UserDto> save(@PathVariable( "id" ) Integer id, UserDto entity) {
-        return Optional.empty();
+    @PatchMapping( "/api/user/{id}")
+    public UserDto save(@PathVariable( "id" ) Integer id, UserDto entity) {
+        return null;
     }
 
     @Override
-    @GetMapping("/{id}")
-    public Optional<UserDto> findById(@PathVariable( "id" ) Integer id) {
-        return Optional.empty();
+    @GetMapping("/api/user/{id}")
+    public UserDto findById(@PathVariable( "id" ) Integer id) {
+        return null;
     }
 
     @Override
-    @GetMapping("")
-    public Optional<List<UserDto>> findAll() {
-        return Optional.empty();
+    @GetMapping("/api/user")
+    public List<UserDto> findAll() {
+        return Collections.emptyList();
     }
 
     @Override
-    @DeleteMapping("/{id}")
-    public Optional<UserDto> deleteById(@PathVariable( "id" ) Integer id) {
-        return Optional.empty();
+    @DeleteMapping("/api/user/{id}")
+    public UserDto deleteById(@PathVariable( "id" ) Integer id) {
+        return null;
     }
 
     @Override
-    @PutMapping("/{id}")
-    public Optional<UserDto> archiveById(@PathVariable( "id" ) Integer id) {
-        return Optional.empty();
+    @PutMapping("/api/user/{id}")
+    public UserDto archiveById(@PathVariable( "id" ) Integer id) {
+        return null;
     }
 }

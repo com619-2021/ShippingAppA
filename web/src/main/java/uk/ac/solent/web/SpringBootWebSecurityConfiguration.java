@@ -59,9 +59,8 @@ public class SpringBootWebSecurityConfiguration{
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                     .and()
                     .authorizeRequests()
-                    .antMatchers("/auth/**").permitAll()
-                    .antMatchers("/rest/openapi.json").permitAll()
-                    .antMatchers("/rest/**").permitAll()
+                    .antMatchers("/api/auth/**").permitAll()
+                    .antMatchers("/api/openapi.json").permitAll()
                     .anyRequest()
                     .authenticated();
             security.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
@@ -85,7 +84,7 @@ public class SpringBootWebSecurityConfiguration{
                             "/images/**",
                             "/swagger-ui/**",
                             "/registration",
-                            "/rest/openapi.json"
+                            "/api/openapi.json"
                     ).permitAll()
                     .antMatchers("/mvc/**"
                     ).hasRole("USER") // ROLE_USER
@@ -102,7 +101,7 @@ public class SpringBootWebSecurityConfiguration{
                     .logout()
                     .permitAll()
                     .logoutSuccessUrl("/login?logout")
-                    .and().csrf().ignoringAntMatchers("/rest/**"); // prevents csrf checking on rest api
+                    .and().csrf().ignoringAntMatchers("/api/**"); // prevents csrf checking on rest api
         }
 
     }

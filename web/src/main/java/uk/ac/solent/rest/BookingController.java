@@ -5,11 +5,12 @@ import org.springframework.web.bind.annotation.*;
 import uk.ac.solent.dao.booking.BookingRepository;
 import uk.ac.solent.model.booking.BookingDto;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value ="/booking", produces = "application/json")
+//@RequestMapping(path ="/api/booking", produces = "application/json")
 @Transactional
 public class BookingController implements BaseController<BookingDto>{
 
@@ -20,38 +21,38 @@ public class BookingController implements BaseController<BookingDto>{
     }
 
     @Override
-    @PostMapping("")
-    public Optional<BookingDto> create(BookingDto entity) {
-        return Optional.empty();
+    @PostMapping("/api/booking")
+    public BookingDto create(BookingDto entity) {
+        return null;
     }
 
     @Override
-    @PatchMapping( "/{id}")
-    public Optional<BookingDto> save(@PathVariable( "id" ) Integer id, BookingDto entity) {
-        return Optional.empty();
+    @PatchMapping( "/api/booking/{id}")
+    public BookingDto save(@PathVariable( "id" ) Integer id, BookingDto entity) {
+        return null;
     }
 
     @Override
-    @GetMapping("/{id}")
-    public Optional<BookingDto> findById(@PathVariable( "id" ) Integer id) {
-        return Optional.empty();
+    @GetMapping("/api/booking/{id}")
+    public BookingDto findById(@PathVariable( "id" ) Integer id) {
+        return null;
     }
 
     @Override
-    @GetMapping("")
-    public Optional<List<BookingDto>> findAll() {
-        return Optional.empty();
+    @GetMapping("/api/booking")
+    public List<BookingDto> findAll() {
+        return Collections.emptyList();
     }
 
     @Override
-    @DeleteMapping("/{id}")
-    public Optional<BookingDto> deleteById(@PathVariable( "id" ) Integer id) {
-        return Optional.empty();
+    @DeleteMapping("/api/booking/{id}")
+    public BookingDto deleteById(@PathVariable( "id" ) Integer id) {
+        return null;
     }
 
     @Override
-    @PutMapping("/{id}")
-    public Optional<BookingDto> archiveById(@PathVariable( "id" ) Integer id) {
-        return Optional.empty();
+    @PutMapping("/api/booking/{id}")
+    public BookingDto archiveById(@PathVariable( "id" ) Integer id) {
+        return null;
     }
 }
