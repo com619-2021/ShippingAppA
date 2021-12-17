@@ -1,4 +1,4 @@
-name: BuidDeploy
+name: BuildDeploy
 
 on:
   release:
