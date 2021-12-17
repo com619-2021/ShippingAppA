@@ -21,23 +21,24 @@ public class BaseModel implements Serializable {
     private final Integer id;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(name = "created_at", updatable = false)
     @CreatedDate
     @JsonIgnore
     private Date createdAt;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated_at", nullable = false)
+    @Column(name = "updated_at")
     @LastModifiedDate
     @JsonIgnore
     private Date updatedAt;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "archived", nullable = false)
+    @Column(name = "archived")
     @JsonIgnore
     private Date archived;
 
     @Version
+    @Column(name = "version")
     @JsonIgnore
     private int version;
 
