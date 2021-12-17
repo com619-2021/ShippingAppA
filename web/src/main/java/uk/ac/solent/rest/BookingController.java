@@ -21,37 +21,37 @@ public class BookingController implements BaseController<BookingDto>{
     }
 
     @Override
-    @PostMapping("/api/booking")
+    @PostMapping(value ="/api/booking")
     public BookingDto create(BookingDto entity) {
         return null;
     }
 
     @Override
-    @PatchMapping( "/api/booking/{id}")
+    @PatchMapping(value = "/api/booking/{id}")
     public BookingDto save(@PathVariable( "id" ) Integer id, BookingDto entity) {
         return null;
     }
 
     @Override
-    @GetMapping("/api/booking/{id}")
+    @GetMapping(value ="/api/booking/{id}")
     public BookingDto findById(@PathVariable( "id" ) Integer id) {
         return null;
     }
 
     @Override
-    @GetMapping("/api/booking")
+    @GetMapping(value ="/api/booking")
     public List<BookingDto> findAll() {
         return Collections.emptyList();
     }
 
     @Override
-    @DeleteMapping("/api/booking/{id}")
+    @DeleteMapping(value ="/api/booking/{id}")
     public BookingDto deleteById(@PathVariable( "id" ) Integer id) {
         return null;
     }
 
     @Override
-    @PutMapping("/api/booking/{id}")
+    @PutMapping(value ="/api/booking/{id}")
     public BookingDto archiveById(@PathVariable( "id" ) Integer id) {
         return null;
     }

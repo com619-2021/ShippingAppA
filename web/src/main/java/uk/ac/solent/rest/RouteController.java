@@ -21,37 +21,37 @@ public class RouteController implements BaseController<RouteDto>{
     }
 
     @Override
-    @PostMapping("/api/route")
+    @PostMapping(value ="/api/route")
     public RouteDto create(RouteDto entity) {
         return null;
     }
 
     @Override
-    @PatchMapping( "/api/route/{id}")
+    @PatchMapping(value = "/api/route/{id}")
     public RouteDto save(@PathVariable( "id" ) Integer id, RouteDto entity) {
         return null;
     }
 
     @Override
-    @GetMapping("/api/route/{id}")
+    @GetMapping(value ="/api/route/{id}")
     public RouteDto findById(@PathVariable( "id" ) Integer id) {
         return null;
     }
 
     @Override
-    @GetMapping("/api/route")
+    @GetMapping(value ="/api/route")
     public List<RouteDto> findAll() {
         return Collections.emptyList();
     }
 
     @Override
-    @DeleteMapping("/api/route/{id}")
+    @DeleteMapping(value ="/api/route/{id}")
     public RouteDto deleteById(@PathVariable( "id" ) Integer id) {
         return null;
     }
 
     @Override
-    @PutMapping("/api/route/{id}")
+    @PutMapping(value ="/api/route/{id}")
     public RouteDto archiveById(@PathVariable( "id" ) Integer id) {
         return null;
     }

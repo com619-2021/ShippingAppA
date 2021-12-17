@@ -27,31 +27,31 @@ public class ShipController implements BaseController<ShipDto>{
     }
 
     @Override
-    @PatchMapping( "/api/ship/{id}")
+    @PatchMapping(value ="/api/ship/{id}")
     public ShipDto save(@PathVariable( "id" ) Integer id, ShipDto entity) {
         return null;
     }
 
     @Override
-    @GetMapping("/api/ship/{id}")
+    @GetMapping(value ="/api/ship/{id}")
     public ShipDto findById(@PathVariable( "id" ) Integer id) {
         return null;
     }
 
     @Override
-    @GetMapping("/api/ship")
+    @GetMapping(value ="/api/ship")
     public List<ShipDto> findAll() {
         return Collections.emptyList();
     }
 
     @Override
-    @DeleteMapping("/api/ship/{id}")
+    @DeleteMapping(value ="/api/ship/{id}")
     public ShipDto deleteById(@PathVariable( "id" ) Integer id) {
         return null;
     }
 
     @Override
-    @PutMapping("/api/ship/{id}")
+    @PutMapping(value ="/api/ship/{id}")
     public ShipDto archiveById(@PathVariable( "id" ) Integer id) {
         return null;
     }

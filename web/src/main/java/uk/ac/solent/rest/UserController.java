@@ -22,37 +22,37 @@ public class UserController implements BaseController<UserDto>{
     }
 
     @Override
-    @PostMapping("/api/user")
+    @PostMapping(value ="/api/user")
     public UserDto create(UserDto entity) {
         return null;
     }
 
     @Override
-    @PatchMapping( "/api/user/{id}")
+    @PatchMapping(value ="/api/user/{id}")
     public UserDto save(@PathVariable( "id" ) Integer id, UserDto entity) {
         return null;
     }
 
     @Override
-    @GetMapping("/api/user/{id}")
+    @GetMapping(value ="/api/user/{id}")
     public UserDto findById(@PathVariable( "id" ) Integer id) {
         return null;
     }
 
     @Override
-    @GetMapping("/api/user")
+    @GetMapping(value = "/api/user")
     public List<UserDto> findAll() {
         return Collections.emptyList();
     }
 
     @Override
-    @DeleteMapping("/api/user/{id}")
+    @DeleteMapping(value ="/api/user/{id}")
     public UserDto deleteById(@PathVariable( "id" ) Integer id) {
         return null;
     }
 
     @Override
-    @PutMapping("/api/user/{id}")
+    @PutMapping(value ="/api/user/{id}")
     public UserDto archiveById(@PathVariable( "id" ) Integer id) {
         return null;
     }
