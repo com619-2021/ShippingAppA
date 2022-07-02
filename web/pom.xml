@@ -84,6 +84,13 @@
             <scope>compile</scope>
         </dependency>
 
+        <!--Swagger-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
         <!-- to allow jersey to work with spring as a component -->
         <!-- note if not present need to have jersey-hk2 on classpath -->
         <dependency>

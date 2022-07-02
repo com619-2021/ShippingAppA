@@ -3,45 +3,47 @@ package uk.ac.solent.service.user;
 import org.springframework.stereotype.Service;
 import uk.ac.solent.model.user.UserDto;
 import uk.ac.solent.model.user.UserModelService;
+import uk.ac.solent.dao.user.UserRepository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserService implements UserModelService {
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Override
-    public Optional<UserDto> create(UserDto entity) {
-        return Optional.empty();
+    public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userRepository = userRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @Override
-    public Optional<UserDto> findById(Integer id) {
-        return Optional.empty();
+    public UserDto create(UserDto user) {
+       user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+//        user.setRoles(new HashSet<>(roleRepository.findByName(UserRoles.ROLE_USER.toString())));
+        return userRepository.save(user);
     }
 
     @Override
-    public Optional<List<UserDto>> findAll() {
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional<UserDto> save(UserDto entity) {
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional<UserDto> deleteById(Integer id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional<UserDto> archiveById(Integer id) {
-        return Optional.empty();
+    public UserDto findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
     @Override
     public Optional<UserDto> findByEmail(String email) {
-        return Optional.empty();
+        return userRepository.getByEmail(email);
     }
+
+    @Override
+    public List<UserDto> findAll() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public UserDto save(UserDto user) {
+        return userRepository.save(user);
+    }
+
 }
