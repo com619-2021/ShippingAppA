@@ -6,6 +6,7 @@ import uk.ac.solent.dao.route.RouteRepository;
 import uk.ac.solent.model.route.RouteDto;
 import uk.ac.solent.model.ship.ShipDto;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -24,11 +25,10 @@ public class RouteController implements BaseController<RouteDto>{
     }
 
     @Override
-    @PostMapping(value ="/api/route")
-    public void add(RouteDto entity) {
+    @PostMapping("/api/route")
+    public void add(@Valid @RequestBody RouteDto entity) {
         routes.add(entity);
     }
-
     @Override
     @PatchMapping(value = "/api/route/{id}")
     public RouteDto save(@PathVariable( "id" ) Integer id, RouteDto entity) {
@@ -36,17 +36,16 @@ public class RouteController implements BaseController<RouteDto>{
     }
 
     @Override
-    @GetMapping(value ="/api/route/{id}")
-    public RouteDto findById(@PathVariable( "id" ) Integer id) {
-        return null;
+    @GetMapping(value ="/api/route/{id}", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
+    public RouteDto findById(@RequestParam Integer id) {
+        return routes.stream().filter(route -> route.getId() == id).findFirst().orElse(null);
     }
 
     @Override
-    @GetMapping(value ="/api/route")
+    @GetMapping(value ="/route/route", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
     public List<RouteDto> findAll() {
-        return Collections.emptyList();
+        return routes;
     }
-
     @Override
     @DeleteMapping(value ="/api/route/{id}")
     public void deleteById(@PathVariable( "id" ) Integer id) {
