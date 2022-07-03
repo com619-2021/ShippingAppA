@@ -46,12 +46,12 @@ public class UserRestController {
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
     @Produces({MediaType.TEXT_PLAIN})
     public String message() {
-        LOG.debug("stevedore called");
-        return "Hello, rest!";
+        LOG.debug("shiplane called");
+        return "Test, string, at rest controller!";
     }
 
     @GET
-    @Path("/user")
+    @Path("/api/user")
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Transactional(readOnly = true)
@@ -124,6 +124,14 @@ public class UserRestController {
     public Response createUser(@QueryParam("name") String name,
                                @QueryParam("password") String password,
                                @Context UriInfo uriInfo) {
+
+        UserDto user = new UserDto();
+        user.setUsername(name);
+        user.setFirstName(name);
+        user.setSecondName(name);
+        user.setPassword(password);
+        user = userRestController.create(user);
+
         /*
         try {
             ReplyMessage replyMessage = new ReplyMessage();
@@ -131,12 +139,7 @@ public class UserRestController {
             if (userService == null) {
                 throw new RuntimeException("userService==null and has not been initialised");
             }
-            User user = new User();
-            user.setUsername(name);
-            user.setFirstName(name);
-            user.setSecondName(name);
-            user.setPassword(password);
-            user = userService.create(user);
+
 
             List<User> userList = Arrays.asList(user);
             String requestPath = uriInfo.getAbsolutePath().toASCIIString();
@@ -185,6 +188,4 @@ public class UserRestController {
 
         return unboundList;
     }
-
-
 }
