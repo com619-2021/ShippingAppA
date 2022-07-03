@@ -4,7 +4,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import uk.ac.solent.dao.route.RouteRepository;
 import uk.ac.solent.model.route.RouteDto;
-import uk.ac.solent.model.ship.ShipDto;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
