@@ -18,37 +18,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SpringBootWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers("/",
-                        "/home",
-                        "/contact",
-                        "/about",
-                        "/index.html",
-                        "/resources/**",
-                        "/images/**",
-                        "/swagger-ui/**",
-                        "/registration",
-                        "/rest/openapi.json"
-                ).permitAll()
-                .antMatchers("/mvc/**"
-                ).hasRole("USER") // ROLE_USER
-                .antMatchers("/users").hasRole("GLOBAL_ADMIN") // ROLE_GLOBAL_ADMIN
-                .antMatchers("/rest/**").hasAnyRole("REST_USER","GLOBAL_ADMIN") // ROLE_GLOBAL_ADMIN
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .usernameParameter("username")
-                .passwordParameter("password")
-                .defaultSuccessUrl("/home", true)
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll()
-                .logoutSuccessUrl("/login?logout")
-                .and().csrf().ignoringAntMatchers("/rest/**"); // prevents csrf checking on rest api
+    protected void configure(HttpSecurity security) throws Exception
+    {
+        security.httpBasic().disable();
+        security.csrf().disable();
     }
 
     @Bean

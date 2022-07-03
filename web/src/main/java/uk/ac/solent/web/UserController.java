@@ -8,9 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import uk.ac.solent.validator.UserValidator;
 import uk.ac.solent.service.user.UserService;
 import uk.ac.solent.model.user.UserDto;
+import uk.ac.solent.model.user.UserRoles;
+import org.springframework.validation.BindingResult;
+import uk.ac.solent.service.user.SecurityService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.PrintWriter;
@@ -23,15 +27,25 @@ public class UserController {
 
    final static Logger LOG = LogManager.getLogger(UserController.class);
 
-   private final UserService userService;
+    {
+        LOG.debug("UserController created");
+    }
+
+   @Autowired
+   private UserService userService;
 
 
-   private final UserValidator userValidator;
+   @Autowired
+   private SecurityService securityService;
 
-   public UserController(UserService userService, UserValidator userValidator) {
-       this.userService = userService;
-       this.userValidator = userValidator;
-   }
+   @Autowired
+   private UserValidator userValidator;
+
+
+//   public UserController(UserService userService, UserValidator userValidator) {
+//       this.userService = userService;
+//       this.userValidator = userValidator;
+//   }
 
    @RequestMapping(value = "/registration", method = RequestMethod.GET)
    public String registration(Model model) {
@@ -39,6 +53,27 @@ public class UserController {
        return "registration";
    }
 
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    public String registration(@ModelAttribute("userForm") UserDto userForm, BindingResult bindingResult, Model model) {
+        userValidator.validate(userForm, bindingResult);
+
+        if (bindingResult.hasErrors()) {
+            return "registration";
+        }
+
+        userService.create(userForm);
+
+        // if not logged in then log in as new party
+        // if logged in, stay as present party (e.g. global admin)
+//        if (!hasRole(UserRoles.ROLE_USER.name())) {
+            LOG.debug("creating new user and logging in : " + userForm);
+            securityService.autologin(userForm.getUsername(), userForm.getPassword());
+//        } else {
+            LOG.debug("creating new user : " + userForm);
+//        }
+
+        return "redirect:/viewModifyUser?username=" + userForm.getUsername();
+    }
 
    @RequestMapping(value = "/denied", method = {RequestMethod.GET, RequestMethod.POST})
    public String denied(Model model) {

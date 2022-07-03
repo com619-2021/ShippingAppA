@@ -8,8 +8,6 @@ public interface UserModelService {
 
     UserDto findByUsername(String username);
 
-    Optional<UserDto> findByEmail(String email);
-
     List<UserDto> findAll();
 
     UserDto save(UserDto user);

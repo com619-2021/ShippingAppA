@@ -24,10 +24,10 @@ public class UserValidator implements Validator {
         UserDto user = (UserDto) o;
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty");
-        if (user.getEmail().length() < 6 || user.getEmail().length() > 32) {
+        if (user.getUsername().length() < 6 || user.getUsername().length() > 32) {
             errors.rejectValue("email", "Size.userForm.email");
         }
-        if (userService.findByEmail(user.getEmail()) != null) {
+        if (userService.findByUsername(user.getUsername()) != null) {
             errors.rejectValue("email", "Duplicate.userForm.email");
         }
 

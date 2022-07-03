@@ -32,11 +32,6 @@ public class UserService implements UserModelService {
     }
 
     @Override
-    public Optional<UserDto> findByEmail(String email) {
-        return userRepository.getByEmail(email);
-    }
-
-    @Override
     public List<UserDto> findAll() {
         return userRepository.findAll();
     }

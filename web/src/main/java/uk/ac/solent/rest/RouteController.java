@@ -4,7 +4,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import uk.ac.solent.dao.route.RouteRepository;
 import uk.ac.solent.model.route.RouteDto;
+import uk.ac.solent.model.ship.ShipDto;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +17,7 @@ import java.util.Optional;
 public class RouteController implements BaseController<RouteDto>{
 
     private final RouteRepository routeRepository;
+    private static final List<RouteDto> routes = new ArrayList<>();
 
     public RouteController(RouteRepository routeRepository) {
         this.routeRepository = routeRepository;
@@ -22,8 +25,8 @@ public class RouteController implements BaseController<RouteDto>{
 
     @Override
     @PostMapping(value ="/api/route")
-    public RouteDto create(RouteDto entity) {
-        return null;
+    public void add(RouteDto entity) {
+        routes.add(entity);
     }
 
     @Override
@@ -46,8 +49,8 @@ public class RouteController implements BaseController<RouteDto>{
 
     @Override
     @DeleteMapping(value ="/api/route/{id}")
-    public RouteDto deleteById(@PathVariable( "id" ) Integer id) {
-        return null;
+    public void deleteById(@PathVariable( "id" ) Integer id) {
+
     }
 
     @Override
