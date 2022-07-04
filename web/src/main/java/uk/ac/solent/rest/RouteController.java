@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @RestController
 //@RequestMapping(path ="/api/route", produces = "application/json")
-@Transactional
 public class RouteController implements BaseController<RouteDto>{
 
     private final RouteRepository routeRepository;
@@ -41,7 +40,7 @@ public class RouteController implements BaseController<RouteDto>{
     }
 
     @Override
-    @GetMapping(value ="/route/route", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value ="/api/route", produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
     public List<RouteDto> findAll() {
         return routes;
     }
